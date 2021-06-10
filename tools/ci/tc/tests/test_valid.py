@@ -2,7 +2,7 @@ import json
 import os
 
 import jsone
-from unittest import mock
+import mock
 import pytest
 import requests
 import yaml

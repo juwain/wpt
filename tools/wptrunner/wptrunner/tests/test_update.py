@@ -1,5 +1,5 @@
 import json
-from unittest import mock
+import mock
 import os
 import pytest
 import sys

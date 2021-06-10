@@ -1,5 +1,5 @@
 import os.path
-from unittest.mock import patch
+from mock import patch
 
 from tools.manifest.manifest import Manifest
 from tools.wpt import testfiles

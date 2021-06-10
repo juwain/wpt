@@ -1,4 +1,4 @@
-from unittest import mock
+import mock
 from io import BytesIO
 
 from manifest import manifest as wptmanifest

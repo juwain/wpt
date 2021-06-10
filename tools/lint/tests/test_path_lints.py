@@ -1,4 +1,4 @@
-from unittest import mock
+import mock
 import os
 
 from ..lint import check_path, check_unique_case_insensitive_paths
