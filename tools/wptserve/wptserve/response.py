@@ -2,7 +2,6 @@ from collections import OrderedDict
 from datetime import datetime, timedelta
 from io import BytesIO
 import json
-import socket
 import uuid
 
 from hpack.struct import HeaderTuple

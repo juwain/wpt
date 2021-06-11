@@ -7,7 +7,6 @@ import multiprocessing
 import os
 import platform
 import signal
-import socket
 import subprocess
 import sys
 import threading
