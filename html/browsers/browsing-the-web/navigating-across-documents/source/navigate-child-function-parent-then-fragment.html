@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>
+  Set location from a parent, then do a fragment navigation from within the
+  frame.
+</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id=log></div>
+<iframe></iframe>
+<script>
+  setup({ single_test: true });
+  onload = function() {
+    var fr = document.querySelector("iframe")
+    fr.contentWindow.location = "support/dummy.html"
+    fr.onload = function() {
+      assert_equals(fr.contentDocument.referrer, document.URL)
+      fr.contentWindow.onhashchange = function() {
+        // The referrer stays the same, even when the last navigation was
+        // initiated by the iframe (instead of the main frame document).
+        assert_equals(fr.contentDocument.referrer, document.URL)
+        done()
+      }
+      // Do a fragment navigation from the frame, which will fire the
+      // 'hashchange' function.
+      let navigateScript = fr.contentDocument.createElement("script");
+      navigateScript.innerHTML = "location.href = '#foo'";
+      fr.contentDocument.body.appendChild(navigateScript)
+    }
+  }
+</script>
